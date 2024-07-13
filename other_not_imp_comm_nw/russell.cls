@@ -159,6 +159,7 @@
 \newcommand*{\headerpositionstyle}[1]{{\fontsize{7.6pt}{1em}\bodyfont\scshape\color{russell} #1}}
 \newcommand*{\headeraddressstyle}[1]{{\fontsize{8pt}{1em}\headerfont\itshape\color{lighttext} #1}}
 \newcommand*{\headersocialstyle}[1]{{\fontsize{6.8pt}{1em}\headerfont\color{cyan} #1}}
+
 \newcommand*{\headerquotestyle}[1]{{\fontsize{9pt}{1em}\bodyfont\itshape\color{darktext} #1}}
 \newcommand*{\footerstyle}[1]{{\fontsize{8pt}{1em}\footerfont\scshape\color{lighttext} #1}}
 \newcommand*{\sectionstyle}[1]{{\fontsize{16pt}{1em}\bodyfont\bfseries\color{text}\@sectioncolor #1}}
@@ -454,13 +455,15 @@
       \ifthenelse{\isundefined{\@email}}%
         {}%
         {%
-          \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
+          \ifbool{isstart}{\setbool{isstart}{false}}{\textcolor{text}{\acvHeaderSocialSep}}%
           \href{mailto:\@email}{\textcolor{text}{\faEnvelope}\acvHeaderIconSep\@email}%
         }%
       \ifthenelse{\isundefined{\@dateofbirth}}%
         {}%
         {%
-          \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
+          \ifbool{isstart}{\setbool{isstart}{false}}{
+          \textcolor{text}{
+          \acvHeaderSocialSep}}%
           % \mbox prevents wrapping of elements%
           \mbox{\faBirthdayCake\acvHeaderIconSep\@dateofbirth}%
         }%
@@ -473,7 +476,7 @@
       \ifthenelse{\isundefined{\@github}}%
         {}%
         {%
-          \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
+          \ifbool{isstart}{\setbool{isstart}{false}}{\textcolor{text}{\acvHeaderSocialSep}}%
           \href{https://github.com/\@github}{\textcolor{text}{\faGithubSquare}\acvHeaderIconSep\@github}%
         }%
       \ifthenelse{\isundefined{\@gitlab}}%
@@ -491,13 +494,13 @@
       \ifthenelse{\isundefined{\@stackoverflowid}}%
         {}%
         {%
-          \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
+          \ifbool{isstart}{\setbool{isstart}{false}}{\textcolor{text}{\acvHeaderSocialSep}}%
           \href{https://stackoverflow.com/users/\@stackoverflowid}{\textcolor{text}{\faStackOverflow}\acvHeaderIconSep\@stackoverflowname}%
         }%
       \ifthenelse{\isundefined{\@linkedin}}%
         {}%
         {%
-          \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
+          \ifbool{isstart}{\setbool{isstart}{false}}{\textcolor{text}{\acvHeaderSocialSep}}%
           \href{https://www.linkedin.com/in/\@linkedin}{\textcolor{text}{\faLinkedin}\acvHeaderIconSep\@linkedin}%
         }%
       \ifthenelse{\isundefined{\@orcid}}%
